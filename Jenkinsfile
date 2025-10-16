@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_HUB_USER = 'seynabou02'
+        DOCKER_HUB_USER = 'abdoubasse'
         FRONT_IMAGE = 'react-frontend'
         BACKEND_IMAGE = 'express-backend'
     }
@@ -29,7 +29,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Seynabou26/full_stack_app.git'
+                git branch: 'main', url: 'https://github.com/AbdouBasse/pipeline.git'
             }
         }
 
