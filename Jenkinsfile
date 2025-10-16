@@ -53,7 +53,8 @@ pipeline {
         // SonarQube
         // ----------------------------
         //// Analyse le code avec SonarQube
-        stage('SonarQube Analysis') {
+        
+        //   stage('SonarQube Analysis') {
             steps {
                 echo "Analyse du code avec SonarQube"
                 withSonarQubeEnv('Sonarqube_local') {
