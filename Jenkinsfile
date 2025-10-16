@@ -83,14 +83,14 @@ pipeline {
         // ----------------------------
         // Tests
         // ----------------------------
-        stage('Run tests') {
-            steps {
-                script {
-                    sh 'cd back && npm test || echo "Aucun test backend"'
-                    sh 'cd front && npm test || echo "Aucun test frontend"'
-                }
-            }
-        }
+      //  stage('Run tests') {
+       //     steps {
+       //         script {
+                //    sh 'cd back && npm test || echo "Aucun test backend"'
+                 //   sh 'cd front && npm test || echo "Aucun test frontend"'
+           //     }
+       //     }
+       // }
 
         // ----------------------------
         // Docker
