@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: seynabou02/react-frontend:latest   # Image Docker du frontend
+        image: abdoubasse/react-frontend:latest   # Image Docker du frontend
         ports:
         - containerPort: 80    # Port interne exposé par le conteneur (80 car utilisation de nginx)
         # Si vous n'utilisez pas nginx, vous pouvez exposer le port de développement Vite (5173)
