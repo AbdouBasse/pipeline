@@ -57,7 +57,7 @@ pipeline {
             steps {
                 echo "Analyse du code avec SonarQube"
                 withSonarQubeEnv('Sonarqube_local') {
-                    withCredentials([string(credentialsId: 'credential_sonarqube', variable: 'SONAR_TOKEN')]) {
+                    withCredentials([string(credentialsId: 'credentials_sonarqube', variable: 'SONAR_TOKEN')]) {
                         sh """
                             ${tool('Sonarqube_scanner')}/bin/sonar-scanner \
                             -Dsonar.projectKey=sonarqube \
@@ -109,7 +109,7 @@ pipeline {
 
         stage('Push Docker Images') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'credentials_dockerHub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'credentials_dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                         docker push $DOCKER_USER/$FRONT_IMAGE:latest
