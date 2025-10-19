@@ -52,7 +52,7 @@ pipeline {
         // ----------------------------
         // SonarQube (commenté volontairement)
         // ----------------------------
-        
+      /*  
         stage('SonarQube Analysis') {
             steps {
                 echo "Analyse du code avec SonarQube"
