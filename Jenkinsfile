@@ -9,6 +9,7 @@ pipeline {
         DOCKER_HUB_USER = 'abdoubasse'
         FRONT_IMAGE = 'react-frontend'
         BACKEND_IMAGE = 'express-backend'
+        KUBECONFIG = '/var/lib/jenkins/.minikube/config'
     }
 
     triggers {
