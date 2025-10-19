@@ -52,7 +52,7 @@ pipeline {
         // ----------------------------
         // SonarQube (commenté volontairement)
         // ----------------------------
-        /*
+        
         stage('SonarQube Analysis') {
             steps {
                 echo "Analyse du code avec SonarQube"
@@ -69,7 +69,7 @@ pipeline {
                 }
             }
         }
-
+/*
         stage("Quality Gate") {
             steps {
                 echo "Vérification du Quality Gate"
