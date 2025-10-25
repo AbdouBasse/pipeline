@@ -105,9 +105,7 @@ resource "aws_db_instance" "db" {
   password             = var.db_pass
   skip_final_snapshot  = true
   publicly_accessible  = true
-  identifier           = "filrouge-db"
-  engine_version       = "8.0
-  parameter_group_name = "default.mysql8.0"
+  
 
 
   tags = {
