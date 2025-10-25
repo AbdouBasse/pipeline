@@ -16,7 +16,7 @@ pipeline {
                 checkout scmGit(
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        credentialsId: 'github-jenkins',
+                        credentialsId: '',
                         url: 'https://github.com/AbdouBasse/pipeline.git'
                     ]]
                 )
