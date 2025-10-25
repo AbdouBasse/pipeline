@@ -5,7 +5,7 @@ provider "aws" {
 
 # 🌐 VPC
 resource "aws_vpc" "main" {
-  cidr_block = var.vpc_cidr  # Ex: "10.0.0.0/16"dfx
+  cidr_block = var.vpc_cidr  # Ex: "10.0.0.0/16"
   tags = {
     Name = "FilRouge-VPC"
   }
@@ -105,6 +105,10 @@ resource "aws_db_instance" "db" {
   password             = var.db_pass
   skip_final_snapshot  = true
   publicly_accessible  = true
+  identifier           = "filrouge-db"
+  engine_version       = "8.0
+  parameter_group_name = "default.mysql8.0"
+
 
   tags = {
     Name = "FilRouge-DB"
