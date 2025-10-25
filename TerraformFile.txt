@@ -17,7 +17,7 @@ pipeline {
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
                         credentialsId: 'github-jenkins',
-                        url: 'https://github.com/ndiayekhardiata2024/Depot_Jenkins.git'
+                        url: 'https://github.com/AbdouBasse/pipeline.git'
                     ]]
                 )
             }
@@ -36,7 +36,7 @@ pipeline {
                         variable: 'AWS_SESSION_TOKEN'
                     )
                 ]) {
-                    dir('infra') {
+                    dir('infrastructure') {
                         sh '''
                             terraform init
                             terraform plan -var-file=terraform.tfvars
@@ -59,7 +59,7 @@ pipeline {
                         variable: 'AWS_SESSION_TOKEN'
                     )
                 ]) {
-                    dir('infra') {
+                    dir('infrastructure') {
                         sh '''
                             terraform apply -auto-approve -var-file=terraform.tfvars
                         '''
