@@ -16,7 +16,7 @@ pipeline {
                 checkout scmGit(
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        credentialsId: 'dockerhub-credentials',
+                        credentialsId: 'credentials_dockerhub',
                         url: 'https://github.com/AbdouBasse/pipeline.git'
                     ]]
                 )
