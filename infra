@@ -6,7 +6,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/usr/local/bin/$PATH"
+        PATH = "/usr/local/bin:$PATH"
         AWS_DEFAULT_REGION = 'us-west-2'
     }
 
