@@ -39,7 +39,7 @@ pipeline {
                     dir('infrastructure') {
                         sh '''
                             terraform init
-                            terraform plan -var-file=terraform.tfvars -out=tfplan
+                            terraform plan -var-file=terraform.tfvars 
 
                         '''
                     }
@@ -65,7 +65,7 @@ pipeline {
                 ]) {
                     dir('infrastructure') {
                         sh '''
-                            terraform apply tfplan -auto-approve
+                            terraform apply -auto-approve -var-file=terraform.tfvars
                         '''
                     }
                 }
