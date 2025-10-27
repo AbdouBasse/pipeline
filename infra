@@ -64,7 +64,7 @@ pipeline {
                 ]) {
                     dir('infrastructure') {
                         sh '''
-                            terraform apply tfplan -auto-approve -var-file=terraform.tfvars
+                            terraform apply tfplan -auto-approve
                         '''
                     }
                 }
