@@ -23,6 +23,21 @@ app.use(cors({
 // Autoriser un body JSON plus gros (ex: 10mb)
 app.use(express.json({ limit: "10mb" }));
 
+// -----------------------------
+// 🔍 Intégration Prometheus
+// -----------------------------
+const client = require('prom-client');
+
+// Collecte des métriques par défaut (CPU, mémoire, etc.)
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics();
+
+// Route pour exposer les métriques à Prometheus
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  res.end(await client.register.metrics());
+});
+
 // Routes API
 app.use('/api', smartphoneRoutes);
 
