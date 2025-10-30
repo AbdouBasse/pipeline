@@ -151,8 +151,6 @@ pipeline {
                     sh "kubectl rollout status deployment/backend"
                     sh "kubectl rollout status deployment/frontend"
                     
-                    sh "kubectl rollout status deployment/prometheus"
-                    sh "kubectl rollout status deployment/grafana"
                     
                 }
             }
