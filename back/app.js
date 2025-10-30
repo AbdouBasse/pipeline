@@ -38,9 +38,30 @@ app.get('/metrics', async (req, res) => {
   res.end(await client.register.metrics());
 });
 
+// 🔁 Compteur de requêtes HTTP
+const httpRequestCounter = new client.Counter({
+  name: 'http_requests_total',
+  help: 'Nombre total de requêtes HTTP',
+  labelNames: ['method', 'route', 'status']
+});
+
+// Middleware pour incrémenter le compteur à chaque requête
+app.use((req, res, next) => {
+  res.on('finish', () => {
+    httpRequestCounter.inc({
+      method: req.method,
+      route: req.route ? req.route.path : req.path,
+      status: res.statusCode
+    });
+  });
+  next();
+});
+
+
 // Routes API
 app.use('/api', smartphoneRoutes);
 
 // Lancer le serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => console.log(`Serveur lancé sur http://0.0.0.0:${PORT}`));
+
