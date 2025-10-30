@@ -139,10 +139,21 @@ pipeline {
                     sh "kubectl apply -f k8s/back-service.yaml"
                     sh "kubectl apply -f k8s/front-deployment.yaml"
                     sh "kubectl apply -f k8s/front-service.yaml"
+                    sh "kubectl apply -f k8s/prometheus-configmap.yaml"
+                    sh "kubectl apply -f k8s/prometheus-deployment.yaml"
+                    sh "kubectl apply -f k8s/prometheus-service.yaml"
+                    sh "kubectl apply -f k8s/grafana-configmap.yaml"
+                    sh "kubectl apply -f k8s/grafana-deployment.yaml"
+                    sh "kubectl apply -f k8s/grafana-service.yaml"
+
 
                     sh "kubectl rollout status deployment/mongo"
                     sh "kubectl rollout status deployment/backend"
                     sh "kubectl rollout status deployment/frontend"
+                    
+                    sh "kubectl rollout status deployment/prometheus"
+                    sh "kubectl rollout status deployment/grafana"
+                    
                 }
             }
         }
