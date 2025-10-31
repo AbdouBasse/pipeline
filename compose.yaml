@@ -37,6 +37,16 @@ services:
     networks:
       - backend-net
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus-config:/etc/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - backend-net
+
 volumes:
   mongo_data:
 
