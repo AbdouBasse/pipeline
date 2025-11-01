@@ -35,5 +35,8 @@ data:
   static_configs:
     - targets: ['cadvisor-service:8080']
 
+  
+
+
 
 
