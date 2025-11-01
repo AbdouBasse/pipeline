@@ -1,1 +1,12 @@
-
+apiVersion: qpps/v1
+kind: Service
+metadata:
+  name: cadvisor-service
+  labels:
+    app: cadvisor
+spec:
+  selector:
+    app: cadvisor
+  ports:
+    - port: 8080
+      targetPort: 8080
