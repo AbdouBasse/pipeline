@@ -1,14 +1,19 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: jenkins-monitor
+  name: jenkins-servicemonitor
   labels:
     release: prometheus
+    app: jenkins
 spec:
   selector:
     matchLabels:
       app: jenkins
+  namespaceSelector:
+    matchNames:
+      - default  # ou le namespace où Jenkins est déployé
   endpoints:
     - port: http
       path: /prometheus
       interval: 30s
+      scheme: http
