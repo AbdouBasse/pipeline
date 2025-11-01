@@ -1,5 +1,5 @@
 # k8s/back-service.yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Service
 metadata:
   name: backend-service   # Nom du service exposant le backend
