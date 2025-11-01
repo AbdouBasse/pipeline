@@ -13,3 +13,7 @@ data:
       - job_name: 'express-backend'
         static_configs:
           - targets: ['express-api:5000']
+      - job_name: 'prometheus'
+  static_configs:
+    - targets: ['localhost:9090']
+
