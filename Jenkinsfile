@@ -148,6 +148,12 @@ pipeline {
                     sh "kubectl apply -f k8s/jenkins-monitor.yaml"
 
 
+                    sh "kubectl apply -f k8s/promtail-configmap.yaml"
+                    sh "kubectl apply -f k8s/promtail-daemonset.yaml"
+                    sh "kubectl apply -f k8s/promtail-service.yaml"
+
+
+
 
                     sh "kubectl rollout status deployment/mongo"
                     sh "kubectl rollout status deployment/backend"
