@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: promtail-service
+  labels:
+    app: promtail
+spec:
+  selector:
+    app: promtail
+  ports:
+    - port: 9080
+      targetPort: 9080
