@@ -1,5 +1,5 @@
 # k8s/mongo-deployment.yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo         # Nom du déploiement MongoDB
