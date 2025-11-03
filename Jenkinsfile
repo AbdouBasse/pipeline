@@ -133,8 +133,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 
-                    sh "kubectl apply -f k8s/mongo-deployment.yaml"
-                    sh "kubectl apply -f k8s/mongo-service.yaml"
+                    sh "minikube kubectl apply -f k8s/mongo-deployment.yaml"
+                    sh "minikube kubectl apply -f k8s/mongo-service.yaml"
                     sh "kubectl apply -f k8s/back-deployment.yaml"
                     sh "kubectl apply -f k8s/back-service.yaml"
                     sh "kubectl apply -f k8s/front-deployment.yaml"
