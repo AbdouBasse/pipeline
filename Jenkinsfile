@@ -155,6 +155,8 @@ pipeline {
                     sh "kubectl apply -f k8s/promtail-configmap.yaml"
                     sh "kubectl apply -f k8s/promtail-daemonset.yaml"
                     sh "kubectl apply -f k8s/promtail-service.yaml"
+                    sh "kubectl apply -f k8s/express-service.yaml"
+                    sh "kubectl apply -f k8s/express-monitor.yaml"
 
 
 
