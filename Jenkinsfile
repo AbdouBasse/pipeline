@@ -132,8 +132,8 @@ pipeline {
         // ----------------------------
         stage('Deploy to Kubernetes') {
             steps {
-                
-                    sh "kubectl apply -f k8s/mongo-deployment.yaml"
+               withKubeConfig([credentialsId: 'credential_kubernetes']) { 
+                    sh "minikube kubectl apply -f k8s/mongo-deployment.yaml"
                     sh "kubectl apply -f k8s/mongo-service.yaml"
                     sh "kubectl apply -f k8s/back-deployment.yaml"
                     sh "kubectl apply -f k8s/back-service.yaml"
@@ -163,7 +163,7 @@ pipeline {
                     sh "kubectl rollout status deployment/backend"
                     sh "kubectl rollout status deployment/frontend"
                     
-                    
+               }    
                 
             }
         }
