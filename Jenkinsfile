@@ -150,7 +150,7 @@ pipeline {
                     sh "kubectl apply -f k8s/node-exporter.yaml"
                     sh "kubectl apply -f k8s/node-exporter-service.yaml"
                     sh "kubectl apply -f k8s/kube-state-metrics-deployment.yaml"
-                    sh "kubectl apply -f k8s/kube-static-metrics-service.yaml"
+                    sh "kubectl apply -f k8s/kube-state-metrics-service.yaml"
                     sh "kubectl apply -f k8s/promtail-configmap.yaml"
                     sh "kubectl apply -f k8s/promtail-daemonset.yaml"
                     sh "kubectl apply -f k8s/promtail-service.yaml"
