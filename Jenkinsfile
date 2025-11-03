@@ -146,8 +146,12 @@ pipeline {
                     sh "kubectl apply -f k8s/grafana-deployment.yaml"
                     sh "kubectl apply -f k8s/grafana-service.yaml"
                     sh "kubectl apply -f k8s/jenkins-monitor.yaml"
-
-
+                    sh "kubectl apply -f k8s/jenkins-service.yaml"
+                    sh "kubectl apply -f k8s/jenkins-deployment.yaml"
+                    sh "kubectl apply -f k8s/node-exporter.yaml"
+                    sh "kubectl apply -f k8s/node-exporter-service.yaml"
+                    sh "kubectl apply -f k8s/kube-state-metric-deployment.yaml"
+                    sh "kubectl apply -f k8s/kube-static-metric-service.yaml"
                     sh "kubectl apply -f k8s/promtail-configmap.yaml"
                     sh "kubectl apply -f k8s/promtail-daemonset.yaml"
                     sh "kubectl apply -f k8s/promtail-service.yaml"
