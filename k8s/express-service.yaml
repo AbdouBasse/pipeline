@@ -5,9 +5,11 @@ metadata:
   labels:
     app: backend
 spec:
+  type: NodePort  # 🔥 Ajout pour exposer le service
   selector:
     app: backend
   ports:
     - name: http
       port: 5000
       targetPort: 5000
+      nodePort: 30500  # Choisis un port entre 30000 et 32767
