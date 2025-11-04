@@ -8,6 +8,8 @@ pipeline {
   environment {
     PATH = "/usr/local/bin:$PATH"
     AWS_DEFAULT_REGION = 'us-west-2'
+    LOG_DIR = "/var/log/jenkins"
+    BUILD_TAG = "terraform-${env.BUILD_NUMBER}"
   }
 
   stages {
@@ -34,9 +36,10 @@ pipeline {
           string(credentialsId: 'aws-session-token', variable: 'AWS_SESSION_TOKEN')
         ]) {
           sh '''
+            mkdir -p $LOG_DIR
             cd infrastructure
-            terraform init
-            terraform plan -var-file=terraform.tfvars
+            terraform init | tee $LOG_DIR/terraform-init-${BUILD_TAG}.log
+            terraform plan -var-file=terraform.tfvars | tee $LOG_DIR/terraform-plan-${BUILD_TAG}.log
           '''
         }
       }
@@ -56,10 +59,19 @@ pipeline {
           string(credentialsId: 'aws-session-token', variable: 'AWS_SESSION_TOKEN')
         ]) {
           sh '''
+            mkdir -p $LOG_DIR
             cd infrastructure
-            terraform apply -auto-approve -var-file=terraform.tfvars
+            terraform apply -auto-approve -var-file=terraform.tfvars | tee $LOG_DIR/terraform-apply-${BUILD_TAG}.log
           '''
         }
+      }
+    }
+
+    stage('Promtail Log Info') {
+      steps {
+        echo "Logs Terraform enregistrés dans : $LOG_DIR"
+        echo "Tu peux les explorer dans Grafana local avec LogQL :"
+        echo "{job=\"jenkins\"} |= \"${BUILD_TAG}\""
       }
     }
   }
