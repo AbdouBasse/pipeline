@@ -20,8 +20,8 @@ data:
 
       - job_name: 'jenkins'
         static_configs:
-          - targets: ['localhost:8080']
-        metrics_path: /prometheus/
+          - targets: ['172.17.0.1:8080']
+        metrics_path: /prometheus
 
       - job_name: 'node-exporter'
         static_configs:
