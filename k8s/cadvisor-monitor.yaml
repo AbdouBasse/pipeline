@@ -9,6 +9,5 @@ spec:
     matchLabels:
       app: cadvisor
   endpoints:
-    - port: 8080
-      path: /metrics
-      interval: 30s
+    - port: "http-metrics"  # 👈 correspond au nom du port dans le Service
+      interval: 15s
