@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: cadvisor-service
 spec:
+  type: NodePort
   selector:
     app: cadvisor
   ports:
     - name: http-metrics
       port: 8080
       targetPort: 8080
+      nodePort: 30083
