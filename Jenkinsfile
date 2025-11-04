@@ -25,7 +25,7 @@ pipeline {
             printPostContent: true
         )
     }
-e
+
     stages {
 
         stage('Checkout') {
