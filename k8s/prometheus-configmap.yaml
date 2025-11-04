@@ -33,4 +33,4 @@ data:
 
       - job_name: 'cadvisor'
         static_configs:
-          - targets: ['jcadvisor-service:8080']
+          - targets: ['cadvisor-service:8080']
