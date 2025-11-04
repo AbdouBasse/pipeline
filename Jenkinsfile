@@ -148,7 +148,7 @@ pipeline {
                  //   sh "kubectl apply -f k8s/jenkins-service.yaml"
                  //   sh "kubectl apply -f k8s/jenkins-monitor.yaml"
                   //  sh "kubectl apply -f k8s/jenkins-deployment.yaml"
-                    sh "kubectl apply -f k8s/cadvisor.yaml"
+                    sh "kubectl apply -f k8s/cadvisor-deployment.yaml"
                     sh "kubectl apply -f k8s/cadvisor-service.yaml"
                     sh "kubectl apply -f k8s/cadvisor-monitor.yaml"
                     sh "kubectl apply -f k8s/node-exporter.yaml"
