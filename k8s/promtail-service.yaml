@@ -5,8 +5,10 @@ metadata:
   labels:
     app: promtail
 spec:
+  type: NodePort
   selector:
     app: promtail
   ports:
     - port: 9080
       targetPort: 9080
+      nodePort: 30190  # Tu peux choisir un port entre 30000 et 32767
