@@ -3,11 +3,11 @@ kind: ServiceMonitor
 metadata:
   name: express-monitor
   labels:
-    release: prometheus
+    release: prometheus  # Doit correspondre au label du Prometheus Operator
 spec:
   selector:
     matchLabels:
-      app: backend
+      app: backend  # Doit correspondre au label du Service
   endpoints:
     - port: http
       path: /metrics
