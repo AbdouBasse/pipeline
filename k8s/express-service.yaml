@@ -4,6 +4,10 @@ metadata:
   name: express-service
   labels:
     app: backend
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "5000"
 spec:
   type: NodePort
   selector:
@@ -12,4 +16,4 @@ spec:
     - name: http
       port: 5000
       targetPort: 5000
-      nodePort: 30500  # Port accessible en local
+      nodePort: 30500
