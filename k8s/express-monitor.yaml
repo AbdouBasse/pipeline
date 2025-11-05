@@ -7,7 +7,10 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: backend  # Doit correspondre au label du Service
+      app: backend  # Doit correspondre au label du Service express-service
+  namespaceSelector:
+    matchNames:
+      - default  # ou le namespace réel du service
   endpoints:
     - port: http
       path: /metrics
