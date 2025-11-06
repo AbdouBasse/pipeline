@@ -1,9 +1,8 @@
-# k8s/back-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
   name: back-service   # Nom du service exposant le backend
-   labels:
+  labels:
     app: backend
   annotations:
     prometheus.io/scrape: "true"
@@ -13,7 +12,7 @@ spec:
   selector:
     app: backend          # Lie le service au pod ayant le label "app=backend"
   ports:
-  - port: 5000            # Port d’accès au service à l’intérieur du cluster
-    targetPort: 5000      # Port du conteneur dans le pod
-    nodePort: 30001       # Port accessible depuis l’extérieur du cluster (via Minikube ou Node)
-  type: NodePort          # Type de service expo
+    - port: 5000            # Port d’accès au service à l’intérieur du cluster
+      targetPort: 5000      # Port du conteneur dans le pod
+      nodePort: 30001       # Port accessible depuis l’extérieur du cluster (via Minikube ou Node)
+  type: NodePort            # Type de service exposé
