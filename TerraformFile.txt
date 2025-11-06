@@ -39,9 +39,8 @@ pipeline {
             mkdir -p $LOG_DIR
             cd infrastructure
             terraform init | tee $LOG_DIR/terraform-init-${BUILD_TAG}.log
-            terraform plan -var-file=terraform.tfvars | tee $LOG_DIR/terraform-plan-${BUILD_TAG}.log
-                       
-            '''
+            terraform plan -out=tfplan -var-file=terraform.tfvars | tee $LOG_DIR/terraform-plan-${BUILD_TAG}.log
+          '''
         }
       }
     }
@@ -62,7 +61,7 @@ pipeline {
           sh '''
             mkdir -p $LOG_DIR
             cd infrastructure
-            terraform apply -auto-approve -var-file=terraform.tfvars | tee $LOG_DIR/terraform-apply-${BUILD_TAG}.log
+            terraform apply tfplan | tee $LOG_DIR/terraform-apply-${BUILD_TAG}.log
           '''
         }
       }
