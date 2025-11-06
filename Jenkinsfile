@@ -145,8 +145,8 @@ pipeline {
                    // sh "kubectl apply -f k8s/grafana-configmap.yaml"
                   //  sh "kubectl apply -f k8s/grafana-deployment.yaml"
                    // sh "kubectl apply -f k8s/grafana-service.yaml"
-                 //   sh "kubectl apply -f k8s/jenkins-service.yaml"
-                 //   sh "kubectl apply -f k8s/jenkins-monitor.yaml"
+                      sh "kubectl apply -f k8s/jenkins-service.yaml"
+                      sh "kubectl apply -f k8s/jenkins-monitor.yaml"
                   //  sh "kubectl apply -f k8s/jenkins-deployment.yaml"
                     sh "kubectl apply -f k8s/cadvisor-deployment.yaml"
                     sh "kubectl apply -f k8s/cadvisor-service.yaml"
@@ -158,8 +158,8 @@ pipeline {
                     sh "kubectl apply -f k8s/promtail-configmap.yaml"
                     sh "kubectl apply -f k8s/promtail-daemonset.yaml"
                     sh "kubectl apply -f k8s/promtail-service.yaml"
-                    sh "kubectl apply -f k8s/express-service.yaml"
-                    sh "kubectl apply -f k8s/express-monitor.yaml"
+                    //sh "kubectl apply -f k8s/express-service.yaml"
+                   // sh "kubectl apply -f k8s/express-monitor.yaml"
 
 
 
