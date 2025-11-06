@@ -40,7 +40,8 @@ pipeline {
             cd infrastructure
             terraform init | tee $LOG_DIR/terraform-init-${BUILD_TAG}.log
             terraform plan -var-file=terraform.tfvars | tee $LOG_DIR/terraform-plan-${BUILD_TAG}.log
-          '''
+                       
+            '''
         }
       }
     }
